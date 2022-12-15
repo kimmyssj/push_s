@@ -6,7 +6,7 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 01:24:32 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/10 03:55:00 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/13 12:22:01 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	error_message(int flag)
 	if (flag == arg_not_valid)
 		write(2, "Error\nArgument which is not valid", 33);
 	else if (flag == int_not_exist)
-		write(2, "There's no valid int", 20);
+		write(2, "Error\nThere's no valid int", 26);
 	else if (flag == malloc_fail)
 		write(2, "Error\nFailed to make list", 26);
 	else if (flag == arg_underflow)

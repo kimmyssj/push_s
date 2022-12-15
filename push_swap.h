@@ -6,7 +6,7 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 06:09:13 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/13 03:09:27 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/15 11:58:02 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ typedef struct s_gnl
 
 typedef struct s_list
 {
-	int		content;
-	int		idx;
-	int		flag;
-	void	*next;
-	void	*before;
+	int				content;
+	int				idx;
+	int				flag;
+	struct s_list	*next;
+	struct s_list	*before;
 }	t_list;
 
 typedef struct s_idx
@@ -90,9 +90,13 @@ int		ft_atoi(char *str);
 int		check_arg(int argc, char **av, t_ht *ht);
 void	error_message(int fd);
 void	current_check(t_list *heada, t_list *headb, int num); // 나중에 지워
-void	comm_s(t_list **head);
-void	comm_ss(t_list **head_a, t_list **head_b);
+void	comm_s(t_ht *ht, int flag);
+void	comm_ss(t_ht *hta, t_ht *htb);
 void	comm_pa(t_ht *ht_a, t_ht *ht_b);
 void	comm_pb(t_ht *ht_a, t_ht *ht_b);
+void	comm_rx(t_ht *ht, int flag);
+void	comm_rr(t_ht *hta, t_ht *htb);
+void	comm_rrx(t_ht *ht, int flag);
+void	comm_rrr(t_ht *hta, t_ht *htb);
 
 #endif

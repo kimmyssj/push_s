@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRC_A = main.c error_message.c ft_atoi.c arg.c current_status.c \
-		sort_s.c sort_p.c
+		sort_s.c sort_p.c sort_r.c sort_rr.c
 
 OBJ_A = $(SRC_A:.c=.o)
 

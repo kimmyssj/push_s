@@ -101,8 +101,6 @@ void current_check(t_list *heada, t_list *headb, int num)
 			contentb = ft_itoa(headb->content);
 		else
 			contentb = " ";
-		if (heada == NULL && headb == NULL)
-			return ;
 		printf("%s    %s\n", contenta, contentb);
 		idx ++;
 		if (heada != NULL)
@@ -111,5 +109,5 @@ void current_check(t_list *heada, t_list *headb, int num)
 			headb = headb->next;
 	}
 	printf("---------------------\n");
-	printf("A    B\n");
+	printf("A    B\n\n");
 }
