@@ -6,12 +6,11 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 01:39:16 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/11 18:03:13 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:19:47 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h> // 삭제해 밑에 프린트엪까지 같이.
 
 void	check_the_argument(char *str)
 {
@@ -47,6 +46,7 @@ t_list	*ft_lstnew(char *argv, int idx1, t_ht *ht)
 		error_message(malloc_fail);
 	answer->content = ft_atoi(argv + idx1);
 	answer->flag = 0;
+	answer->pivot = 0;
 	if (ht->head == NULL && ht->tail == NULL)
 	{
 		answer->before = NULL;

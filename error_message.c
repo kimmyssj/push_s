@@ -6,7 +6,7 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 01:24:32 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/13 12:22:01 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/26 17:16:52 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ void	error_message(int flag)
 	else if (flag == malloc_fail)
 		write(2, "Error\nFailed to make list", 26);
 	else if (flag == arg_underflow)
-		write(2, "Error\nArgument underflow", 24);
+		write(2, "Error\nArgument underflow", 25);
 	else if (flag == arg_overflow)
-		write(2, "Error\nArgument overflow", 23);
+		write(2, "Error\nArgument overflow", 24);
 	else if (flag == arg_dup)
 		write(2, "Error\nArguments are duplicated", 30);
 	else if (flag == malloc_fail)

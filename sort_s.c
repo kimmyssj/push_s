@@ -6,7 +6,7 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 02:42:48 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/14 13:41:06 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/20 01:45:11 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,27 @@
 
 void	comm_s(t_ht *ht, int flag)
 {
-	t_list	*buff;
+	int		content;
+	int		idx;
+	t_list	*temp;
+	t_list	*new;
 
-	buff = ht->head;
-	if (ht->head->next == ht->tail)
-		ht->tail = buff;
-	ht->head = ht->head->next;
-	buff->next = ht->head->next;
-	ht->head->next = buff;
-	buff->before = ht->head;
-	ht->head->before = NULL;
+	content = ht->head->content;
+	idx = ht->head->idx;
+	temp = ht->head->next;
+	free(ht->head);
+	ht->head = temp;
+	new = malloc(sizeof(t_list));
+	if (new == NULL)
+		error_message(malloc_fail);
+	new->content = content;
+	new->idx = idx;
+	new->next = temp->next;
+	if (temp->next != NULL)
+		temp->next->before = new;
+	temp->next = new;
+	new->before = temp;
+	temp->before = NULL;
 	if (flag == sa)
 		write(1, "sa\n", 3);
 	else if (flag == sb)

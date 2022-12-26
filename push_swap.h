@@ -6,7 +6,7 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 06:09:13 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/15 11:58:02 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/26 18:20:37 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ enum e_error_message
 	arg_dup
 };
 
-enum commands
+enum e_commands
 {
 	sa,
 	sb,
@@ -44,7 +44,8 @@ enum commands
 	rr,
 	rra,
 	rrb,
-	rrr
+	rrr,
+	none
 };
 
 typedef struct s_gnl
@@ -61,6 +62,7 @@ typedef struct s_list
 	int				content;
 	int				idx;
 	int				flag;
+	int				pivot;
 	struct s_list	*next;
 	struct s_list	*before;
 }	t_list;
@@ -86,10 +88,47 @@ typedef struct s_var
 	int		flag;
 }	t_var;
 
+typedef struct s_nums
+{
+	int	num;
+	int	num1;
+}	t_nums;
+
+typedef struct s_checks
+{
+	int	ra;
+	int	rra;
+	int	rb;
+	int	rrb;
+	int	rr;
+	int	rrr;
+	int	r_max;
+	int	rr_max;
+	int	total;
+	int	idx;
+}	t_checks;
+
+typedef struct s_fst
+{
+	int	first;
+	int	second;
+	int	third;
+}	t_fst;
+
 int		ft_atoi(char *str);
 int		check_arg(int argc, char **av, t_ht *ht);
+int		is_it_done(t_list *head);
+int		sort_all(t_ht *hta, t_ht *htb, int num);
+int		is_it_sorted(t_ht *hta, t_ht *htb);
+int		check_up(t_list *head, int min, int max);
+int		check_down(t_list *tail, int min, int max);
+int		check_up_down0(t_list *head, t_list *tail, int min, int max);
+void	hard_coded_three(t_ht *hta);
+void	hard_coded_four(t_ht *hta, t_ht *htb);
+void	hard_coded_five(t_ht *hta, t_ht *htb);
+void	above_hund1(t_ht *hta, t_ht *htb, int num);
+void	find_least_push(t_ht *hta, t_ht *htb, int num);
 void	error_message(int fd);
-void	current_check(t_list *heada, t_list *headb, int num); // 나중에 지워
 void	comm_s(t_ht *ht, int flag);
 void	comm_ss(t_ht *hta, t_ht *htb);
 void	comm_pa(t_ht *ht_a, t_ht *ht_b);
@@ -98,5 +137,7 @@ void	comm_rx(t_ht *ht, int flag);
 void	comm_rr(t_ht *hta, t_ht *htb);
 void	comm_rrx(t_ht *ht, int flag);
 void	comm_rrr(t_ht *hta, t_ht *htb);
+void	search_and_rra_pb(t_ht *hta, t_ht *htb, int min, int max);
+void	search_and_ra_pb(t_ht *hta, t_ht *htb, int min, int max);
 
 #endif

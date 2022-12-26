@@ -6,12 +6,11 @@
 /*   By: seungjki <seungjki@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:23:18 by seungjki          #+#    #+#             */
-/*   Updated: 2022/12/15 14:50:42 by seungjki         ###   ########.fr       */
+/*   Updated: 2022/12/21 19:49:38 by seungjki         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	comm_rrx(t_ht *ht, int flag)
 {
@@ -19,6 +18,8 @@ void	comm_rrx(t_ht *ht, int flag)
 	ht->head->before = ht->tail;
 	ht->tail = ht->tail->before;
 	ht->head = ht->head->before;
+	if (ht->tail == NULL)
+		ht->tail = ht->head;
 	ht->tail->next = NULL;
 	ht->head->before = NULL;
 	if (flag == rra)
